@@ -51,6 +51,70 @@
             animation: float 20s infinite linear;
         }
 
+
+        .spros-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .spros-logo {
+            max-width: 160px;
+            width: 40vw;
+            margin: 0 auto 1.5rem;
+            display: block;
+            filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.4));
+        }
+
+        .spros-text {
+            max-width: 720px;
+            margin: 0 auto;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .valkyrie-block {
+            margin-top: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .valkyrie-image-wrapper {
+            width: 100%;
+            max-width: 480px;
+        }
+
+        .valkyrie-image {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .valkyrie-note {
+            max-width: 420px;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            opacity: 0.75;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .valkyrie-block {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .valkyrie-note {
+                text-align: center;
+            }
+        }
+
+
         @keyframes float {
             0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
             10% { opacity: 0.3; }
@@ -1006,6 +1070,7 @@
                 <li><a href="#gallery">GALLERY</a></li>
                 <li><a href="#sponsors">SPONSORS</a></li>
                 <li><a href="#contact">CONTACT</a></li>
+                <li><a href="#spros">SPROS</a></li>
             </ul>
         </nav>
         <div class="menu-icon">
@@ -1185,6 +1250,71 @@
                 </form>
             </div>
         </section>
+
+
+        <!-- SPROS / ISDC / Valkyrie Section -->
+        <section class="section" id="spros">
+            <div class="discovery-content-wrapper">
+                <div class="discovery-content">
+                    
+                    <!-- SPROS INTRO + LOGO -->
+                <div style="text-align:center;">
+                    <h2 class="section-title">SPROS</h2>
+                </div>
+                    <div class="spros-intro">
+                        <img 
+                            src="assets/spros-logo.png" 
+                            alt="Space Robotics Society (SPROS) logo" 
+                            class="spros-logo"
+                        >
+                        <p class="spros-text">
+                            <strong>Space Robotics Society (SPROS)</strong> is a leading international organisation 
+                            dedicated to advancing space technology and allied fields for a better, open, limitless and 
+                            developed future. Through initiatives like the International Rover Challenge (IRC) and the 
+                            International Space Drone Challenge (ISDC), SPROS brings together student teams, researchers 
+                            and professionals who are building the next generation of space robots and autonomous systems.
+                        </p>
+                    </div>
+
+                    <!-- ISDC 2026 HEADING + CHALLENGE DESCRIPTION -->
+                    <h2 class="section-title" style="text-align:center; width:100%;">International Space Drone Challenge 2026</h2>
+                    <div class="discovery-text">
+                        <p>
+                            <strong>ISDC 2026</strong> is a space robotics engineering competition that challenges 
+                            university teams to conceptualise, design, develop and operate autonomous flying systems 
+                            for space-inspired missions. Teams are scored on how well their drone can interpret the 
+                            mission profile, navigate complex environments, avoid hazards and complete tasks with 
+                            minimal human intervention.
+                        </p>
+                        <p>
+                            The challenge focuses on guidance, navigation and control, perception, systems engineering 
+                            and mission reliability. It is a realistic testbed for the kind of aerial platforms that 
+                            could one day support planetary exploration, infrastructure inspection or logistics in 
+                            off-world environments.
+                        </p>
+                    </div>
+
+                    <!-- VALKYRIE INTRO + IMAGE PLACEHOLDER -->
+                    <h2 class="section-title" style="text-align:center; width:100%" > Introducing Valkyrie </h2>
+                    <div class="valkyrie-block">
+                        <div class="valkyrie-image-wrapper">
+                            <img 
+                                src="assets/valkyrie-placeholder.jpg" 
+                                alt="Valkyrie drone – placeholder image" 
+                                class="valkyrie-image"
+                            >
+                        </div>
+                        <p class="valkyrie-note">
+                            Valkyrie is UGV-DTU&apos;s autonomous drone designed specifically for the 
+                            International Space Drone Challenge 2026. This section will soon describe its 
+                            architecture, sensors, autonomy stack and mission capabilities in more detail.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
     </div>
 
     <script>
