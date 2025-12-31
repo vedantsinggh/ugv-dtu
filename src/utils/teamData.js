@@ -39,7 +39,7 @@ import yuvrajImg from "../assets/team/yuvraj.jpg";
 export const COUNCIL = [
   {
     name: "Vedant Singh",
-    role: "Captian",
+    role: "Captain",
     image: vedantImg,
     instagram: "https://www.instagram.com/vedantsinggh",
     linkedin: "https://www.linkedin.com/in/vedantsinggh/",
@@ -94,11 +94,11 @@ export const COUNCIL = [
     linkedin: "https://www.linkedin.com/in/archit-shukla-8604622a8",
   },
   {
-    name: "Aryan Sharma",
+    name: "Manaan Tyagi",
     role: "Electrical Co-Head",
-    image: aryanImg,
-    instagram: "https://www.instagram.com/aryansharma23122005/",
-    linkedin: "https://www.linkedin.com/in/aryan-sharma-004203330",
+    image: manaanImg,
+    instagram: "https://www.instagram.com/tyagimanaan",
+    linkedin: "https://www.linkedin.com/in/manaantyagi/",
   },
 ];
 
@@ -258,11 +258,11 @@ export const DEPARTMENTS = {
       linkedin: "https://www.linkedin.com/in/jagdish-bishnoi-678aa7372",
     },
     {
-      name: "Manaan Tyagi",
+      name: "Aryan Sharma",
       role: "Member",
-      image: manaanImg,
+      image: aryanImg,
       instagram: "https://www.instagram.com/tyagimanaan/",
-      linkedin: "https://www.linkedin.com/in/manaantyagi",
+      linkedin: "https://www.linkedin.com/in/aryan-sharma-004203330/",
     },
     {
       name: "Sanchit",
