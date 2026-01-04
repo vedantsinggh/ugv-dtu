@@ -261,7 +261,7 @@ export const DEPARTMENTS = {
       name: "Aryan Sharma",
       role: "Member",
       image: aryanImg,
-      instagram: "https://www.instagram.com/tyagimanaan/",
+      instagram: "https://www.instagram.com/aryansharma23122005/",
       linkedin: "https://www.linkedin.com/in/aryan-sharma-004203330/",
     },
     {

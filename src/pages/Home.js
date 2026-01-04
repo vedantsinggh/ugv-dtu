@@ -11,9 +11,9 @@ import UgvRobot from "../components/UgvRobot.js";
 
 import agniImg from "../assets/projects/agni.jpg";
 import ashwini_1_Img from "../assets/projects/ashwini_1.jpeg";
-import ashwini_2_Img from "../assets/projects/ashwini_2.jpeg";
+// import ashwini_2_Img from "../assets/projects/ashwini_2.jpeg";
 import centaur_1_Img from "../assets/projects/centaur_1.png";
-import centaur_2_Img from "../assets/projects/centaur_2.png";
+// import centaur_2_Img from "../assets/projects/centaur_2.png";
 import kurmImg from "../assets/projects/KURM.JPEG";
 import valkyrie_2Img from "../assets/projects/valkyrie_2.jpg";
 
