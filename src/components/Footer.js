@@ -1,37 +1,87 @@
 import "./Footer.css";
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useRef } from "react";
 
 const NAV_HEIGHT = 64;
 
-const smoothScrollTo = (targetY, duration = 800) => {
+let raf = null;
+
+const smoothScrollTo = (targetY, onDone) => {
+  cancelAnimationFrame(raf);
+
   const startY = window.scrollY;
   const diff = targetY - startY;
-  let startTime = null;
+  const distance = Math.abs(diff);
+
+  const duration = Math.min(
+    4200,
+    Math.max(1600, distance * 1.15)
+  );
+
+  let start = null;
 
   const ease = (t) =>
-    t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+    t < 0.5
+      ? 8 * t * t * t * t
+      : 1 - Math.pow(-2 * t + 2, 4) / 2;
 
-  const step = (timestamp) => {
-    if (!startTime) startTime = timestamp;
-    const time = timestamp - startTime;
-    const progress = Math.min(time / duration, 1);
-
-    window.scrollTo(0, startY + diff * ease(progress));
-
-    if (time < duration) requestAnimationFrame(step);
+  const step = (time) => {
+    if (!start) start = time;
+    const p = Math.min((time - start) / duration, 1);
+    window.scrollTo(0, startY + diff * ease(p));
+    if (p < 1) {
+      raf = requestAnimationFrame(step);
+    } else {
+      onDone?.();
+    }
   };
 
-  requestAnimationFrame(step);
+  raf = requestAnimationFrame(step);
 };
 
 function Footer() {
-  const go = (id) => {
-    const el = document.getElementById(id);
-    if (!el) return;
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
-    smoothScrollTo(
-      el.getBoundingClientRect().top + window.scrollY - NAV_HEIGHT
-    );
+  const clickLock = useRef(false);
+  const scrollLock = useRef(false);
+
+  const go = (id) => {
+    if (clickLock.current) return;
+
+    clickLock.current = true;
+    scrollLock.current = true;
+
+    const unlock = () => {
+      clickLock.current = false;
+      scrollLock.current = false;
+    };
+
+    const scroll = () => {
+      const el = document.getElementById(id);
+      if (!el) {
+        unlock();
+        return;
+      }
+
+      const y =
+        el.getBoundingClientRect().top +
+        window.scrollY -
+        NAV_HEIGHT;
+
+      smoothScrollTo(y, unlock);
+    };
+
+    if (isHome) {
+      scroll();
+    } else {
+      navigate("/");
+      requestAnimationFrame(() => {
+        requestAnimationFrame(scroll);
+      });
+    }
   };
 
   return (
@@ -60,10 +110,18 @@ function Footer() {
           </div>
 
           <div className="footer-socials">
-            <a href="https://www.instagram.com/ugvdtu/" target="_blank" rel="noreferrer">
+            <a
+              href="https://www.instagram.com/ugvdtu/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <FaInstagram />
             </a>
-            <a href="https://www.instagram.com/ugvdtu/" target="_blank" rel="noreferrer">
+            <a
+              href="https://www.linkedin.com/company/ugvdtu/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <FaLinkedinIn />
             </a>
           </div>
@@ -76,7 +134,9 @@ function Footer() {
         © {new Date().getFullYear()} UGV Tech Team
       </div>
 
-      <div className="footer-credit">UGV dev · Ankit Kumar Roy</div>
+      <div className="footer-credit">
+        UGV dev · Ankit Kumar Roy
+      </div>
     </footer>
   );
 }
